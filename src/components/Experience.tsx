@@ -1,11 +1,21 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { useI18n } from '@/providers/I18nProvider';
+import { useTranslations } from 'next-intl';
 
 export default function Experience() {
-  const { t } = useI18n();
-  const experiences = t.experience.experiences;
+  const t = useTranslations();
+  const experienceData = t.raw('experience') as {
+    experiences: {
+      company: string;
+      role: string;
+      period: string;
+      location: string;
+      achievements: string[];
+      tech: string[];
+    }[];
+  };
+  const experiences = experienceData.experiences;
 
   return (
     <section id="experience" className="py-20 bg-background-secondary">
@@ -16,7 +26,7 @@ export default function Experience() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl font-bold mb-4">{t.experience.title}</h2>
+          <h2 className="text-4xl font-bold mb-4">{t('experience.title')}</h2>
           <div className="w-20 h-1 bg-gradient-to-r from-primary to-accent mx-auto" />
         </motion.div>
 
@@ -24,7 +34,7 @@ export default function Experience() {
           <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-accent to-primary" />
 
           <div className="space-y-12">
-            {experiences.map((exp: any, index: number) => (
+            {experiences.map((exp, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
@@ -49,7 +59,7 @@ export default function Experience() {
                     <p className="text-foreground-secondary mb-4">{exp.role}</p>
                     
                     <ul className="space-y-2 mb-4">
-                      {exp.achievements.map((achievement: string, i: number) => (
+                      {exp.achievements.map((achievement, i) => (
                         <li key={i} className="text-sm text-foreground-secondary flex items-start gap-2">
                           <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
                           {achievement}
@@ -58,7 +68,7 @@ export default function Experience() {
                     </ul>
                     
                     <div className="flex flex-wrap gap-2">
-                      {exp.tech.map((tech: string) => (
+                      {exp.tech.map((tech) => (
                         <span
                           key={tech}
                           className="px-3 py-1 text-xs rounded-full bg-primary/10 text-primary"

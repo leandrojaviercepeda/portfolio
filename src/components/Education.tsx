@@ -1,11 +1,27 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { useI18n } from '@/providers/I18nProvider';
+import { useTranslations } from 'next-intl';
 
 export default function Education() {
-  const { t } = useI18n();
-  const certifications = t.certifications.courses;
+  const t = useTranslations();
+  
+  const educationData = t.raw('education') as {
+    degrees: { lic: string; analyst: string; diploma: string };
+    period: { lic: string; analyst: string; diploma: string };
+    university: string;
+    location: string;
+    utn: string;
+  };
+  
+  const certData = t.raw('certifications') as {
+    courses: { name: string; platform: string; date: string }[];
+  };
+  
+  const languagesData = t.raw('languages') as {
+    native: string;
+    intermediate: string;
+  };
 
   return (
     <section id="education" className="py-20 bg-background-secondary">
@@ -16,7 +32,7 @@ export default function Education() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl font-bold mb-4">{t.education.title}</h2>
+          <h2 className="text-4xl font-bold mb-4">{t('education.title')}</h2>
           <div className="w-20 h-1 bg-gradient-to-r from-primary to-accent mx-auto" />
         </motion.div>
 
@@ -27,10 +43,10 @@ export default function Education() {
             viewport={{ once: true }}
             className="bg-card rounded-xl p-6 glass"
           >
-            <div className="text-sm text-primary font-semibold mb-2">{t.education.period.lic}</div>
-            <h3 className="text-xl font-bold mb-1">{t.education.degrees.lic}</h3>
-            <p className="text-foreground-secondary">{t.education.university}</p>
-            <p className="text-sm text-muted-foreground mt-2">{t.education.location}</p>
+            <div className="text-sm text-primary font-semibold mb-2">{educationData.period.lic}</div>
+            <h3 className="text-xl font-bold mb-1">{educationData.degrees.lic}</h3>
+            <p className="text-foreground-secondary">{educationData.university}</p>
+            <p className="text-sm text-muted-foreground mt-2">{educationData.location}</p>
           </motion.div>
 
           <motion.div
@@ -40,10 +56,10 @@ export default function Education() {
             transition={{ delay: 0.1 }}
             className="bg-card rounded-xl p-6 glass"
           >
-            <div className="text-sm text-primary font-semibold mb-2">{t.education.period.analyst}</div>
-            <h3 className="text-xl font-bold mb-1">{t.education.degrees.analyst}</h3>
-            <p className="text-foreground-secondary">{t.education.university}</p>
-            <p className="text-sm text-muted-foreground mt-2">{t.education.location}</p>
+            <div className="text-sm text-primary font-semibold mb-2">{educationData.period.analyst}</div>
+            <h3 className="text-xl font-bold mb-1">{educationData.degrees.analyst}</h3>
+            <p className="text-foreground-secondary">{educationData.university}</p>
+            <p className="text-sm text-muted-foreground mt-2">{educationData.location}</p>
           </motion.div>
 
           <motion.div
@@ -53,9 +69,9 @@ export default function Education() {
             transition={{ delay: 0.2 }}
             className="bg-card rounded-xl p-6 glass"
           >
-            <div className="text-sm text-primary font-semibold mb-2">{t.education.period.diploma}</div>
-            <h3 className="text-xl font-bold mb-1">{t.education.degrees.diploma}</h3>
-            <p className="text-foreground-secondary">{t.education.utn}</p>
+            <div className="text-sm text-primary font-semibold mb-2">{educationData.period.diploma}</div>
+            <h3 className="text-xl font-bold mb-1">{educationData.degrees.diploma}</h3>
+            <p className="text-foreground-secondary">{educationData.utn}</p>
           </motion.div>
         </div>
 
@@ -66,9 +82,9 @@ export default function Education() {
           transition={{ delay: 0.3 }}
           className="mt-16"
         >
-          <h3 className="text-2xl font-bold mb-8 text-center">{t.certifications.title}</h3>
+          <h3 className="text-2xl font-bold mb-8 text-center">{t('certifications.title')}</h3>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
-            {certifications.map((cert: any, index: number) => (
+            {certData.courses.map((cert, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, scale: 0.9 }}
@@ -92,15 +108,15 @@ export default function Education() {
           transition={{ delay: 0.4 }}
           className="mt-16 text-center"
         >
-          <h3 className="text-2xl font-bold mb-8">{t.languages.title}</h3>
+          <h3 className="text-2xl font-bold mb-8">{t('languages.title')}</h3>
           <div className="flex justify-center gap-8">
             <div className="bg-card rounded-xl p-4 glass">
               <span className="text-lg font-semibold">Español</span>
-              <p className="text-sm text-foreground-secondary">{t.languages.native}</p>
+              <p className="text-sm text-foreground-secondary">{languagesData.native}</p>
             </div>
             <div className="bg-card rounded-xl p-4 glass">
               <span className="text-lg font-semibold">English</span>
-              <p className="text-sm text-foreground-secondary">{t.languages.intermediate}</p>
+              <p className="text-sm text-foreground-secondary">{languagesData.intermediate}</p>
             </div>
           </div>
         </motion.div>

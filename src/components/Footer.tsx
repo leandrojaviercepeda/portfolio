@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { useI18n } from '@/providers/I18nProvider';
+import { useTranslations } from 'next-intl';
 
 const GithubIcon = ({ size = 20 }: { size?: number }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
@@ -24,7 +24,7 @@ const navItems = [
 ];
 
 export default function Footer() {
-  const { t } = useI18n();
+  const t = useTranslations();
 
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
@@ -61,7 +61,7 @@ export default function Footer() {
                 onClick={() => scrollToSection(item.href)}
                 className="text-foreground-secondary hover:text-primary text-sm transition-colors"
               >
-                {t.nav[item.key as keyof typeof t.nav]}
+                {t(`nav.${item.key}`)}
               </button>
             ))}
           </motion.div>
@@ -103,7 +103,7 @@ export default function Footer() {
           className="mt-8 pt-8 border-t border-border text-center"
         >
           <p className="text-foreground-secondary text-sm">
-            © {new Date().getFullYear()} Leandro Cepeda. {t.footer.rights}
+            © {new Date().getFullYear()} Leandro Cepeda. {t('footer.rights')}
           </p>
         </motion.div>
       </div>

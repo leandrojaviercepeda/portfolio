@@ -1,0 +1,209 @@
+{
+  "nav": {
+    "about": "Sobre mí",
+    "skills": "Habilidades",
+    "experience": "Experiencia",
+    "education": "Educación",
+    "projects": "Proyectos",
+    "contact": "Contacto"
+  },
+  "hero": {
+    "title": "Leandro Cepeda",
+    "subtitle": "Analista de Sistemas / Full Stack Developer",
+    "description": "Amplia experiencia en definición de estrategias de transformación digital y desarrollo de sistemas de información.",
+    "cta": "Contactar",
+    "cv": "Descargar CV"
+  },
+  "about": {
+    "title": "Sobre mí",
+    "bio": "Amplia experiencia en definición de estrategias de transformación digital y procesos de transformación de negocios en distintos segmentos de mercado. Experimentado en la creación, gestión de productos y servicios de IT con significativos fundamentos teóricos de Informática y conocimientos prácticos actualizados.",
+    "experience": "Más de 5 años de experiencia",
+    "location": "Concepción del Uruguay, Entre Ríos",
+    "specialization": "Áreas de Especialización",
+    "techStack": "Tech Stack",
+    "specializations": [
+      "Análisis y Diseño de Sistemas",
+      "Desarrollo Web Full Stack",
+      "Bases de Datos SQL/NoSQL",
+      "Testing QA",
+      "CI/CD"
+    ]
+  },
+  "skills": {
+    "title": "Habilidades",
+    "frontend": "Frontend",
+    "backend": "Backend",
+    "tools": "Herramientas",
+    "soft": "Soft Skills",
+    "skillsList": {
+      "frontend": [
+        { "name": "React", "level": 90 },
+        { "name": "TypeScript", "level": 85 },
+        { "name": "Next.js", "level": 80 },
+        { "name": "Tailwind CSS", "level": 90 }
+      ],
+      "backend": [
+        { "name": "Node.js", "level": 90 },
+        { "name": "NestJS", "level": 85 },
+        { "name": "PostgreSQL", "level": 80 },
+        { "name": "MongoDB", "level": 75 }
+      ],
+      "tools": [
+        { "name": "Docker", "level": 85 },
+        { "name": "AWS", "level": 80 },
+        { "name": "Git", "level": 90 },
+        { "name": "Redis", "level": 75 }
+      ],
+      "soft": [
+        { "name": "Comunicación", "level": 95 },
+        { "name": "Trabajo en equipo", "level": 90 },
+        { "name": "Resolución de problemas", "level": 95 },
+        { "name": "Adaptabilidad", "level": 85 }
+      ]
+    }
+  },
+  "experience": {
+    "title": "Experiencia",
+    "current": "Actual",
+    "experiences": [
+      {
+        "company": "ITR Banco Comafi",
+        "role": "Software Developer Full Stack",
+        "period": "Agosto 2023",
+        "location": "Buenos Aires, CABA",
+        "achievements": [
+          "Api Banking Transaction Engine: motor de transacciones bancarias (SIDEBA / COELSA / PRISMA)",
+          "Api Banking BFF Tarjeta Prepaga: sistema de venta de tarjetas prepagas (Prisma)"
+        ],
+        "tech": ["AWS", "Node.js", "NestJS", "React", "PostgreSQL", "Docker"]
+      },
+      {
+        "company": "Proguide",
+        "role": "Full Stack Developer",
+        "period": "Junio 2021",
+        "location": "Entre Ríos, Concepción del Uruguay",
+        "achievements": [
+          "BPM: sistema de Business Process Management",
+          "BOLT: sistema de trade marketing, trade operaciones y logística",
+          "Policía web: sistema de gestión de procesos policiales"
+        ],
+        "tech": ["Node.js", "NestJS", "React", "PostgreSQL", "MongoDB", "Docker"]
+      },
+      {
+        "company": "Toptive",
+        "role": "Full Stack Developer",
+        "period": "Diciembre 2020",
+        "location": "Córdoba, Río Cuarto",
+        "achievements": [
+          "Global Geeks: ecommerce de soluciones tecnológicas",
+          "Krown FT: social network de deportistas profesionales"
+        ],
+        "tech": ["Node.js", "Next.js", "React", "MySQL", "Docker"]
+      },
+      {
+        "company": "Countergank (Personal)",
+        "role": "Founder & Developer",
+        "period": "Mayo 2025",
+        "location": "Concepción del Uruguay, Entre Ríos",
+        "achievements": [
+          "Timegank: proyecto para creadores de contenido"
+        ],
+        "tech": ["Node.js", "NestJS", "React", "MongoDB", "Docker"]
+      }
+    ]
+  },
+  "education": {
+    "title": "Educación",
+    "university": "Universidad Autónoma de Entre Ríos",
+    "universityShort": "UADER",
+    "utn": "Universidad Tecnológica Nacional FRBA",
+    "degrees": {
+      "lic": "Lic. en Sistemas de Información",
+      "analyst": "Analista de Sistemas",
+      "diploma": "Diplomatura en Desarrollo Web Full Stack con React JS"
+    },
+    "period": {
+      "lic": "Marzo 2020 - Diciembre 2021",
+      "analyst": "Marzo 2017 - Diciembre 2019",
+      "diploma": "2020"
+    },
+    "location": "Concepción del Uruguay, Entre Ríos"
+  },
+  "certifications": {
+    "title": "Certificaciones",
+    "courses": [
+      { "name": "DevOps integración y agilidad continua", "platform": "Universidad Tecnológica Nacional FRBA", "date": "Mayo 2023 - Junio 2023" },
+      { "name": "DevOps for developers", "platform": "educative.io", "date": "Mayo 2023" },
+      { "name": "Web development fundamentals", "platform": "educative.io", "date": "Mayo 2023" },
+      { "name": "JavaScript fundamentals", "platform": "educative.io", "date": "Mayo 2023" }
+    ]
+  },
+  "languages": {
+    "title": "Idiomas",
+    "native": "Nativo",
+    "intermediate": "Intermedio"
+  },
+  "projects": {
+    "title": "Proyectos",
+    "viewDemo": "Ver Demo",
+    "viewCode": "Ver Código",
+    "challenges": "Desafíos",
+    "solutions": "Soluciones",
+    "privateProject": "Proyecto privado",
+    "projectsList": [
+      {
+        "title": "Timegank",
+        "description": "Herramienta extensible para creadores de contenido de diferentes plataformas de streaming",
+        "tech": ["Node.js", "NestJS", "React", "MongoDB", "WebSockets"],
+        "github": "",
+        "demo": "https://timegank.countergank.com/login",
+        "challenges": "Sincronización en tiempo real para múltiples usuarios y gestión de eventos simultáneos",
+        "solutions": "Arquitectura con WebSockets para comunicación en tiempo real y base de datos escalable"
+      },
+      {
+        "title": "Api Banking Transaction Engine",
+        "description": "Motor de transacciones bancarias para sistemas de pago argentinos (SIDEBA/COELSA/PRISMA)",
+        "tech": ["AWS", "Node.js", "NestJS", "PostgreSQL"],
+        "github": "",
+        "demo": "",
+        "challenges": "Alta disponibilidad y procesamiento de transacciones en tiempo real",
+        "solutions": "Arquitectura serverless con AWS Lambda y API Gateway"
+      },
+      {
+        "title": "BOLT - Trade Marketing",
+        "description": "Sistema integral de trade marketing, operaciones y logística",
+        "tech": ["Node.js", "NestJS", "React", "PostgreSQL"],
+        "github": "",
+        "demo": "",
+        "challenges": "Gestión de inventario y reportes en tiempo real",
+        "solutions": "Dashboard interactivo con gráficos y métricas"
+      },
+      {
+        "title": "Policía Web",
+        "description": "Sistema de gestión de procesos policiales",
+        "tech": ["Node.js", "NestJS", "React", "MongoDB"],
+        "github": "",
+        "demo": "",
+        "challenges": "Gestión de casos y documentación legal",
+        "solutions": "Workflow automatizado con Camunda BPM"
+      }
+    ]
+  },
+  "contact": {
+    "title": "Contacto",
+    "subtitle": "¿Hablemos?",
+    "description": "Estoy disponible para proyectos freelance, oportunidades laborales y consultorías. No dudes en contactarme.",
+    "name": "Nombre",
+    "email": "Email",
+    "subject": "Asunto",
+    "message": "Mensaje",
+    "send": "Enviar",
+    "sending": "Enviando...",
+    "success": "¡Mensaje enviado con éxito!",
+    "error": "Error al enviar el mensaje",
+    "phone": "Teléfono"
+  },
+  "footer": {
+    "rights": "Todos los derechos reservados"
+  }
+}

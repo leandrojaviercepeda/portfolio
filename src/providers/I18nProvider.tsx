@@ -1,49 +1,26 @@
 'use client';
 
-import { createContext, useContext, useEffect, useState, ReactNode } from 'react';
-import { translations, Locale } from '@/i18n/translations';
+import { useTranslations, useLocale } from 'next-intl';
+import { createContext, useContext, ReactNode } from 'react';
 
-type Translation = typeof translations.en;
+type Translation = Record<string, unknown>;
 
 interface I18nContextType {
-  locale: Locale;
-  setLocale: (locale: Locale) => void;
+  locale: string;
   t: Translation;
 }
 
-const defaultTranslations: Translation = translations.en as Translation;
-
 const I18nContext = createContext<I18nContextType>({
   locale: 'es',
-  setLocale: () => {},
-  t: defaultTranslations,
+  t: {},
 });
 
 export function I18nProvider({ children }: { children: ReactNode }) {
-  const [locale, setLocaleState] = useState<Locale>('es');
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-    const stored = localStorage.getItem('portfolio-locale') as Locale | null;
-    if (stored && translations[stored]) {
-      setLocaleState(stored);
-    } else {
-      const browserLang = navigator.language.slice(0, 2);
-      if (browserLang === 'pt' || browserLang === 'en') {
-        setLocaleState(browserLang as Locale);
-      }
-    }
-  }, []);
-
-  const setLocale = (newLocale: Locale) => {
-    setLocaleState(newLocale);
-    localStorage.setItem('portfolio-locale', newLocale);
-    window.history.pushState(null, '', `/${newLocale}`);
-  };
+  const locale = useLocale();
+  const t = useTranslations();
 
   return (
-    <I18nContext.Provider value={{ locale, setLocale, t: translations[locale] as Translation }}>
+    <I18nContext.Provider value={{ locale, t: t as unknown as Translation }}>
       {children}
     </I18nContext.Provider>
   );

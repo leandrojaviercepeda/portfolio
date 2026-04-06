@@ -4,8 +4,8 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Sun, Moon, Globe } from 'lucide-react';
 import { useTheme } from '@/providers/ThemeProvider';
-import { useI18n } from '@/providers/I18nProvider';
-import { Locale } from '@/i18n/translations';
+import { useTranslations, useLocale } from 'next-intl';
+import { Link } from '@/i18n/navigation';
 
 const navItems = [
   { key: 'about', href: '#about' },
@@ -16,13 +16,14 @@ const navItems = [
   { key: 'contact', href: '#contact' },
 ];
 
-const locales: Locale[] = ['es', 'en', 'pt'];
+const locales = ['es', 'en', 'pt'];
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const { theme, toggleTheme } = useTheme();
-  const { locale, setLocale, t } = useI18n();
+  const t = useTranslations();
+  const locale = useLocale();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -66,7 +67,7 @@ export default function Navbar() {
                 className="text-foreground-secondary hover:text-primary transition-colors"
                 whileHover={{ y: -2 }}
               >
-                {t.nav[item.key as keyof typeof t.nav]}
+                {t(`nav.${item.key}`)}
               </motion.button>
             ))}
           </div>
@@ -93,15 +94,15 @@ export default function Navbar() {
               </motion.button>
               <div className="absolute right-0 top-full mt-2 py-2 bg-card rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
                 {locales.map((loc) => (
-                  <button
+                  <Link
                     key={loc}
-                    onClick={() => setLocale(loc)}
+                    href={`/${loc}`}
                     className={`block w-full px-4 py-1 text-left hover:bg-muted ${
                       locale === loc ? 'text-primary font-semibold' : ''
                     }`}
                   >
                     {loc.toUpperCase()}
-                  </button>
+                  </Link>
                 ))}
               </div>
             </div>
@@ -133,7 +134,7 @@ export default function Navbar() {
                   onClick={() => scrollToSection(item.href)}
                   className="block w-full text-left py-2 text-foreground-secondary hover:text-primary"
                 >
-                  {t.nav[item.key as keyof typeof t.nav]}
+                  {t(`nav.${item.key}`)}
                 </button>
               ))}
             </div>

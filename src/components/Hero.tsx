@@ -1,8 +1,9 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Mail, ArrowDown } from 'lucide-react';
-import { useI18n } from '@/providers/I18nProvider';
+import { Mail } from 'lucide-react';
+import { useTranslations } from 'next-intl';
+import Image from 'next/image';
 
 const GithubIcon = ({ size = 24 }: { size?: number }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
@@ -17,7 +18,7 @@ const LinkedInIcon = ({ size = 24 }: { size?: number }) => (
 );
 
 export default function Hero() {
-  const { t } = useI18n();
+  const t = useTranslations();
 
   return (
     <section id="hero" className="min-h-screen flex items-center justify-center relative">
@@ -36,7 +37,7 @@ export default function Hero() {
               transition={{ delay: 0.2 }}
               className="text-sm text-primary font-medium mb-4"
             >
-              {t.hero.subtitle}
+              {t('hero.subtitle')}
             </motion.div>
             
             <motion.h1
@@ -45,7 +46,7 @@ export default function Hero() {
               transition={{ delay: 0.3 }}
               className="text-5xl md:text-7xl font-bold mb-6"
             >
-              {t.hero.title}
+              {t('hero.title')}
             </motion.h1>
             
             <motion.p
@@ -54,7 +55,7 @@ export default function Hero() {
               transition={{ delay: 0.4 }}
               className="text-xl text-foreground-secondary mb-8 max-w-lg"
             >
-              {t.hero.description}
+              {t('hero.description')}
             </motion.p>
             
             <motion.div
@@ -69,7 +70,7 @@ export default function Hero() {
                 whileTap={{ scale: 0.95 }}
                 className="px-8 py-3 bg-primary text-white rounded-full font-medium hover:bg-primary-dark transition-colors"
               >
-                {t.hero.cta}
+                {t('hero.cta')}
               </motion.a>
               
               <motion.a
@@ -80,7 +81,7 @@ export default function Hero() {
                 whileTap={{ scale: 0.95 }}
                 className="px-8 py-3 border-2 border-primary text-primary rounded-full font-medium hover:bg-primary/10 transition-colors"
               >
-                {t.hero.cv}
+                {t('hero.cv')}
               </motion.a>
             </motion.div>
             
@@ -129,14 +130,15 @@ export default function Hero() {
             <div className="relative">
               <motion.div
                 animate={{ rotate: 360 }}
-                transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
+                transition={{ duration: 20, repeat: 999, ease: 'linear' }}
                 className="absolute inset-0 rounded-full bg-gradient-to-r from-primary/20 to-accent/20 blur-3xl"
               />
                 <div className="relative w-72 h-72 md:w-96 md:h-96 rounded-full overflow-hidden border-4 border-primary/20">
-                <img 
+                <Image 
                   src="https://lh3.googleusercontent.com/d/1WL_nJEKyYT1EpCQ9jflig1d1B9O7c4li=w800" 
                   alt="Leandro Cepeda" 
-                  className="w-full h-full object-cover"
+                  fill
+                  className="object-cover"
                 />
               </div>
             </div>
@@ -154,9 +156,11 @@ export default function Hero() {
       >
         <motion.div
           animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 2, repeat: Infinity }}
+          transition={{ duration: 2, repeat: 999 }}
         >
-          <ArrowDown size={32} className="text-foreground-secondary" />
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-foreground-secondary">
+            <path d="M12 5v14M19 12l-7 7-7-7"/>
+          </svg>
         </motion.div>
       </motion.button>
     </section>

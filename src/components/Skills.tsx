@@ -1,18 +1,28 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { useI18n } from '@/providers/I18nProvider';
+import { useTranslations } from 'next-intl';
 
 export default function Skills() {
-  const { t } = useI18n();
+  const t = useTranslations();
+  
   const categories = [
-    { key: 'frontend', label: t.skills.frontend },
-    { key: 'backend', label: t.skills.backend },
-    { key: 'tools', label: t.skills.tools },
-    { key: 'soft', label: t.skills.soft },
+    { key: 'frontend', label: t('skills.frontend') },
+    { key: 'backend', label: t('skills.backend') },
+    { key: 'tools', label: t('skills.tools') },
+    { key: 'soft', label: t('skills.soft') },
   ];
 
-  const skillsList = t.skills.skillsList;
+  const skillsData = t.raw('skills') as {
+    skillsList: {
+      frontend: { name: string; level: number }[];
+      backend: { name: string; level: number }[];
+      tools: { name: string; level: number }[];
+      soft: { name: string; level: number }[];
+    }
+  };
+
+  const skillsList = skillsData.skillsList;
 
   return (
     <section id="skills" className="py-20">
@@ -23,7 +33,7 @@ export default function Skills() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl font-bold mb-4">{t.skills.title}</h2>
+          <h2 className="text-4xl font-bold mb-4">{t('skills.title')}</h2>
           <div className="w-20 h-1 bg-gradient-to-r from-primary to-accent mx-auto" />
         </motion.div>
 
@@ -39,7 +49,7 @@ export default function Skills() {
             >
               <h3 className="text-lg font-semibold mb-4 text-primary">{category.label}</h3>
               <div className="space-y-4">
-                {skillsList[category.key as keyof typeof skillsList].map((skill: { name: string; level: number }, index: number) => (
+                {skillsList[category.key as keyof typeof skillsList].map((skill, index) => (
                   <div key={skill.name}>
                     <div className="flex justify-between mb-1">
                       <span className="text-sm text-foreground-secondary">{skill.name}</span>

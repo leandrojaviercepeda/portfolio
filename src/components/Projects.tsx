@@ -2,7 +2,7 @@
 
 import { motion, AnimatePresence } from 'framer-motion';
 import { ExternalLink, X } from 'lucide-react';
-import { useI18n } from '@/providers/I18nProvider';
+import { useTranslations } from 'next-intl';
 import { useState } from 'react';
 
 const GithubIcon = ({ size = 16 }: { size?: number }) => (
@@ -12,9 +12,20 @@ const GithubIcon = ({ size = 16 }: { size?: number }) => (
 );
 
 export default function Projects() {
-  const { t } = useI18n();
-  const projects = t.projects.projectsList as unknown as any[];
-  const [selectedProject, setSelectedProject] = useState<any>(null);
+  const t = useTranslations();
+  const projectsData = t.raw('projects') as {
+    projectsList: {
+      title: string;
+      description: string;
+      tech: string[];
+      demo: string;
+      github: string;
+      challenges: string;
+      solutions: string;
+    }[];
+  };
+  const projects = projectsData.projectsList;
+  const [selectedProject, setSelectedProject] = useState<typeof projects[0] | null>(null);
 
   return (
     <section id="projects" className="py-20">
@@ -25,12 +36,12 @@ export default function Projects() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl font-bold mb-4">{t.projects.title}</h2>
+          <h2 className="text-4xl font-bold mb-4">{t('projects.title')}</h2>
           <div className="w-20 h-1 bg-gradient-to-r from-primary to-accent mx-auto" />
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-6">
-          {projects.map((project: any, index: number) => (
+          {projects.map((project, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 20 }}
@@ -52,7 +63,7 @@ export default function Projects() {
                 <p className="text-foreground-secondary text-sm mb-4">{project.description}</p>
                 
                 <div className="flex flex-wrap gap-2 mb-4">
-                  {project.tech.map((tech: string) => (
+                  {project.tech.map((tech) => (
                     <span key={tech} className="px-2 py-1 text-xs rounded-full bg-primary/10 text-primary">
                       {tech}
                     </span>
@@ -69,7 +80,7 @@ export default function Projects() {
                       onClick={(e) => e.stopPropagation()}
                     >
                       <ExternalLink size={16} />
-                      {t.projects.viewDemo}
+                      {t('projects.viewDemo')}
                     </a>
                   )}
                   {project.github && (
@@ -81,7 +92,7 @@ export default function Projects() {
                       onClick={(e) => e.stopPropagation()}
                     >
                       <GithubIcon size={16} />
-                      {t.projects.viewCode}
+                      {t('projects.viewCode')}
                     </a>
                   )}
                 </div>
@@ -120,7 +131,7 @@ export default function Projects() {
               <p className="text-foreground-secondary mb-6">{selectedProject.description}</p>
               
               <div className="flex flex-wrap gap-2 mb-6">
-                {selectedProject.tech.map((tech: string) => (
+                {selectedProject.tech.map((tech) => (
                   <span key={tech} className="px-3 py-1 rounded-full bg-primary/10 text-primary">
                     {tech}
                   </span>
@@ -129,11 +140,11 @@ export default function Projects() {
               
               <div className="grid md:grid-cols-2 gap-6 mb-6">
                 <div className="bg-muted rounded-xl p-4">
-                  <h4 className="font-semibold mb-2 text-primary">{t.projects.challenges}</h4>
+                  <h4 className="font-semibold mb-2 text-primary">{t('projects.challenges')}</h4>
                   <p className="text-sm text-foreground-secondary">{selectedProject.challenges}</p>
                 </div>
                 <div className="bg-muted rounded-xl p-4">
-                  <h4 className="font-semibold mb-2 text-primary">{t.projects.solutions}</h4>
+                  <h4 className="font-semibold mb-2 text-primary">{t('projects.solutions')}</h4>
                   <p className="text-sm text-foreground-secondary">{selectedProject.solutions}</p>
                 </div>
               </div>
@@ -147,12 +158,12 @@ export default function Projects() {
                     className="flex items-center gap-2 px-6 py-3 bg-primary text-white rounded-full font-medium hover:bg-primary-dark transition-colors"
                   >
                     <ExternalLink size={18} />
-                    {t.projects.viewDemo}
+                    {t('projects.viewDemo')}
                   </a>
                 ) : (
                   <span className="flex items-center gap-2 px-6 py-3 bg-muted text-muted-foreground rounded-full font-medium">
                     <ExternalLink size={18} />
-                    {t.projects.privateProject}
+                    {t('projects.privateProject')}
                   </span>
                 )}
                 {selectedProject.github ? (
@@ -163,12 +174,12 @@ export default function Projects() {
                     className="flex items-center gap-2 px-6 py-3 border-2 border-primary text-primary rounded-full font-medium hover:bg-primary/10 transition-colors"
                   >
                     <GithubIcon size={18} />
-                    {t.projects.viewCode}
+                    {t('projects.viewCode')}
                   </a>
                 ) : (
                   <span className="flex items-center gap-2 px-6 py-3 border-2 border-muted text-muted-foreground rounded-full font-medium">
                     <GithubIcon size={18} />
-                    {t.projects.privateProject}
+                    {t('projects.privateProject')}
                   </span>
                 )}
               </div>

@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { useI18n } from '@/providers/I18nProvider';
+import { useTranslations } from 'next-intl';
 
 const techStack = [
   { name: 'AWS', icon: '☁️' },
@@ -15,7 +15,7 @@ const techStack = [
 ];
 
 export default function About() {
-  const { t } = useI18n();
+  const t = useTranslations();
 
   return (
     <section id="about" className="py-20 bg-background-secondary">
@@ -26,7 +26,7 @@ export default function About() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl font-bold mb-4">{t.about.title}</h2>
+          <h2 className="text-4xl font-bold mb-4">{t('about.title')}</h2>
           <div className="w-20 h-1 bg-gradient-to-r from-primary to-accent mx-auto" />
         </motion.div>
 
@@ -38,24 +38,24 @@ export default function About() {
             transition={{ delay: 0.2 }}
           >
             <p className="text-lg text-foreground-secondary leading-relaxed mb-6">
-              {t.about.bio}
+              {t('about.bio')}
             </p>
 
             <div className="flex flex-wrap gap-4 mb-8">
               <div className="flex items-center gap-2 bg-card px-4 py-2 rounded-full glass">
                 <span className="text-primary font-semibold">📍</span>
-                <span className="text-sm">{t.about.location}</span>
+                <span className="text-sm">{t('about.location')}</span>
               </div>
               <div className="flex items-center gap-2 bg-card px-4 py-2 rounded-full glass">
                 <span className="text-primary font-semibold">💼</span>
-                <span className="text-sm">{t.about.experience}</span>
+                <span className="text-sm">{t('about.experience')}</span>
               </div>
             </div>
 
             <div className="space-y-3">
-              <h3 className="font-semibold mb-2">{t.about.specialization}</h3>
+              <h3 className="font-semibold mb-2">{t('about.specialization')}</h3>
               <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                {t.about.specializations.map((spec: string, index: number) => (
+                {(t.raw('about').specializations as string[]).map((spec, index) => (
                   <motion.li
                     key={index}
                     initial={{ opacity: 0, x: -20 }}
@@ -78,7 +78,7 @@ export default function About() {
             viewport={{ once: true }}
             transition={{ delay: 0.3 }}
           >
-            <h3 className="text-xl font-semibold mb-6">{t.about.techStack}</h3>
+            <h3 className="text-xl font-semibold mb-6">{t('about.techStack')}</h3>
             <div className="grid grid-cols-4 gap-4">
               {techStack.map((tech, index) => (
                 <motion.div

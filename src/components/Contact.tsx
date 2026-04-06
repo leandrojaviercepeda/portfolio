@@ -2,11 +2,11 @@
 
 import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin, Send } from 'lucide-react';
-import { useI18n } from '@/providers/I18nProvider';
+import { useTranslations } from 'next-intl';
 import { useState } from 'react';
 
 export default function Contact() {
-  const { t } = useI18n();
+  const t = useTranslations();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -51,7 +51,7 @@ export default function Contact() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl font-bold mb-4">{t.contact.title}</h2>
+          <h2 className="text-4xl font-bold mb-4">{t('contact.title')}</h2>
           <div className="w-20 h-1 bg-gradient-to-r from-primary to-accent mx-auto" />
         </motion.div>
 
@@ -61,9 +61,9 @@ export default function Contact() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
           >
-            <h3 className="text-2xl font-bold mb-6">{t.contact.subtitle}</h3>
+            <h3 className="text-2xl font-bold mb-6">{t('contact.subtitle')}</h3>
             <p className="text-foreground-secondary mb-8">
-              {t.contact.description}
+              {t('contact.description')}
             </p>
 
             <div className="space-y-4">
@@ -88,7 +88,7 @@ export default function Contact() {
                   <Phone className="text-primary" size={24} />
                 </div>
                 <div>
-                  <p className="font-medium">{t.contact.phone}</p>
+                  <p className="font-medium">{t('contact.phone')}</p>
                   <p className="text-foreground-secondary text-sm">+54 3446 549501</p>
                 </div>
               </motion.div>
@@ -118,7 +118,7 @@ export default function Contact() {
               <div className="grid sm:grid-cols-2 gap-4">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium mb-2">
-                    {t.contact.name}
+                    {t('contact.name')}
                   </label>
                   <input
                     type="text"
@@ -128,12 +128,12 @@ export default function Contact() {
                     onChange={handleChange}
                     required
                     className="w-full px-4 py-3 bg-muted rounded-lg border border-transparent focus:border-primary focus:outline-none transition-colors"
-                    placeholder={t.contact.name}
+                    placeholder={t('contact.name')}
                   />
                 </div>
                 <div>
                   <label htmlFor="email" className="block text-sm font-medium mb-2">
-                    {t.contact.email}
+                    {t('contact.email')}
                   </label>
                   <input
                     type="email"
@@ -150,7 +150,7 @@ export default function Contact() {
 
               <div>
                 <label htmlFor="subject" className="block text-sm font-medium mb-2">
-                  {t.contact.subject}
+                  {t('contact.subject')}
                 </label>
                 <input
                   type="text"
@@ -160,13 +160,13 @@ export default function Contact() {
                   onChange={handleChange}
                   required
                   className="w-full px-4 py-3 bg-muted rounded-lg border border-transparent focus:border-primary focus:outline-none transition-colors"
-                  placeholder={t.contact.subject}
+                  placeholder={t('contact.subject')}
                 />
               </div>
 
               <div>
                 <label htmlFor="message" className="block text-sm font-medium mb-2">
-                  {t.contact.message}
+                  {t('contact.message')}
                 </label>
                 <textarea
                   id="message"
@@ -176,7 +176,7 @@ export default function Contact() {
                   required
                   rows={5}
                   className="w-full px-4 py-3 bg-muted rounded-lg border border-transparent focus:border-primary focus:outline-none transition-colors resize-none"
-                  placeholder={t.contact.message}
+                  placeholder={t('contact.message')}
                 />
               </div>
 
@@ -190,12 +190,12 @@ export default function Contact() {
                 {status === 'sending' ? (
                   <>
                     <span className="animate-spin">⏳</span>
-                    {t.contact.sending}
+                    {t('contact.sending')}
                   </>
                 ) : (
                   <>
                     <Send size={20} />
-                    {t.contact.send}
+                    {t('contact.send')}
                   </>
                 )}
               </motion.button>
@@ -206,7 +206,7 @@ export default function Contact() {
                   animate={{ opacity: 1, y: 0 }}
                   className="text-green-500 text-center"
                 >
-                  ✓ {t.contact.success}
+                  ✓ {t('contact.success')}
                 </motion.p>
               )}
 
@@ -216,7 +216,7 @@ export default function Contact() {
                   animate={{ opacity: 1, y: 0 }}
                   className="text-red-500 text-center"
                 >
-                  ✗ {t.contact.error}
+                  ✗ {t('contact.error')}
                 </motion.p>
               )}
             </form>
