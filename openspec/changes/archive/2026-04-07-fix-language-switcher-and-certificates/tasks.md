@@ -24,7 +24,5 @@
 ## Phase 4: Verification
 
 - [x] 4.1 Verificar que el build pasa sin errores (`npm run build`)
-- [ ] 4.2 Verificar manualmente que cambiar idioma preserva el pathname
-- [ ] 4.3 Verificar manualmente que los certificados muestran los enlaces
-- [ ] 4.2 Verificar manualmente que cambiar idioma preserva el pathname
-- [ ] 4.3 Verificar manualmente que los certificados muestran los enlaces
+- [x] 4.2 Verificar manualmente que cambiar idioma preserva el pathname
+- [x] 4.3 Verificar manualmente que los certificados muestran los enlaces
