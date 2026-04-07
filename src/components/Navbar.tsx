@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Sun, Moon, Globe } from 'lucide-react';
 import { useTheme } from '@/providers/ThemeProvider';
 import { useTranslations, useLocale } from 'next-intl';
-import { Link } from '@/i18n/navigation';
+import { Link, useRouter } from '@/i18n/navigation';
 
 const navItems = [
   { key: 'about', href: '#about' },
@@ -24,6 +24,7 @@ export default function Navbar() {
   const { theme, toggleTheme } = useTheme();
   const t = useTranslations();
   const locale = useLocale();
+  const router = useRouter();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -96,7 +97,8 @@ export default function Navbar() {
                 {locales.map((loc) => (
                   <Link
                     key={loc}
-                    href={`/${loc}`}
+                    href="/"
+                    locale={loc}
                     className={`block w-full px-4 py-1 text-left hover:bg-muted ${
                       locale === loc ? 'text-primary font-semibold' : ''
                     }`}

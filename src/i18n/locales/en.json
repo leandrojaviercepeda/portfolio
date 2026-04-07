@@ -114,25 +114,31 @@
   },
   "education": {
     "title": "Education",
+    "viewCertificate": "View Certificate",
     "university": "Universidad Autónoma de Entre Ríos",
     "universityShort": "UADER",
     "utn": "Universidad Tecnológica Nacional FRBA",
     "degrees": {
       "lic": "Bachelor in Information Systems",
       "analyst": "Systems Analyst",
-      "diploma": "Full Stack Web Development Diploma with React JS"
+      "diploma": "Full Stack Web Development Diploma with React JS",
+      "diplomaUrl": "https://drive.google.com/file/d/1BUq210m6bHdjUqPHdLZEQ5W_FY5p92qJ/view?usp=drive_link",
+      "devops": "DevOps, integration and continuous agility",
+      "devopsUrl": "https://drive.google.com/file/d/1GxhnNlgzlizvJI5xv6k2WD4ZkURr_E2X/view?usp=drive_link"
     },
     "period": {
       "lic": "March 2020 - December 2021",
       "analyst": "March 2017 - December 2019",
-      "diploma": "2020"
+      "diploma": "2020",
+      "devops": "May 2023 - June 2023"
     },
     "location": "Concepción del Uruguay, Entre Ríos"
   },
   "certifications": {
     "title": "Certifications",
+    "viewCertificate": "View Certificate",
     "courses": [
-      { "name": "DevOps integration and continuous agility", "platform": "Universidad Tecnológica Nacional FRBA", "date": "May 2023 - June 2023" },
+      { "name": "DevOps integration and continuous agility", "platform": "Universidad Tecnológica Nacional FRBA", "date": "May 2023 - June 2023", "url": "https://drive.google.com/file/d/1GxhnNlgzlizvJI5xv6k2WD4ZkURr_E2X/view?usp=drive_link" },
       { "name": "DevOps for developers", "platform": "educative.io", "date": "May 2023" },
       { "name": "Web development fundamentals", "platform": "educative.io", "date": "May 2023" },
       { "name": "JavaScript fundamentals", "platform": "educative.io", "date": "May 2023" }

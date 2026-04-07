@@ -7,15 +7,11 @@ export default function Education() {
   const t = useTranslations();
   
   const educationData = t.raw('education') as {
-    degrees: { lic: string; analyst: string; diploma: string };
-    period: { lic: string; analyst: string; diploma: string };
+    degrees: { lic: string; analyst: string; diploma: string; diplomaUrl?: string; devops?: string; devopsUrl?: string };
+    period: { lic: string; analyst: string; diploma: string; devops: string };
     university: string;
     location: string;
     utn: string;
-  };
-  
-  const certData = t.raw('certifications') as {
-    courses: { name: string; platform: string; date: string }[];
   };
   
   const languagesData = t.raw('languages') as {
@@ -36,7 +32,7 @@ export default function Education() {
           <div className="w-20 h-1 bg-gradient-to-r from-primary to-accent mx-auto" />
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -72,34 +68,42 @@ export default function Education() {
             <div className="text-sm text-primary font-semibold mb-2">{educationData.period.diploma}</div>
             <h3 className="text-xl font-bold mb-1">{educationData.degrees.diploma}</h3>
             <p className="text-foreground-secondary">{educationData.utn}</p>
-          </motion.div>
-        </div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.3 }}
-          className="mt-16"
-        >
-          <h3 className="text-2xl font-bold mb-8 text-center">{t('certifications.title')}</h3>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
-            {certData.courses.map((cert, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.1 * index }}
-                className="bg-card rounded-xl p-4 glass text-center"
+            {educationData.degrees.diplomaUrl && (
+              <a
+                href={educationData.degrees.diplomaUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block mt-3 text-sm text-primary hover:underline"
               >
-                <h4 className="font-semibold mb-2">{cert.name}</h4>
-                <p className="text-sm text-foreground-secondary">{cert.platform}</p>
-                <p className="text-xs text-muted-foreground mt-1">{cert.date}</p>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
+                {t('education.viewCertificate')}
+              </a>
+            )}
+          </motion.div>
+
+          {educationData.degrees.devops && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.25 }}
+              className="bg-card rounded-xl p-6 glass"
+            >
+              <div className="text-sm text-primary font-semibold mb-2">{educationData.period.devops}</div>
+              <h3 className="text-xl font-bold mb-1">{educationData.degrees.devops}</h3>
+              <p className="text-foreground-secondary">{educationData.utn}</p>
+              {educationData.degrees.devopsUrl && (
+                <a
+                  href={educationData.degrees.devopsUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block mt-3 text-sm text-primary hover:underline"
+                >
+                  {t('education.viewCertificate')}
+                </a>
+              )}
+            </motion.div>
+          )}
+        </div>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
