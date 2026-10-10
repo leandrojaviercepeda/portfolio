@@ -49,53 +49,58 @@ export default function Projects() {
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
               whileHover={{ y: -5 }}
-              className="bg-card rounded-xl overflow-hidden glass cursor-pointer group"
-              onClick={() => setSelectedProject(project)}
+              className="bg-card rounded-xl overflow-hidden glass group flex flex-col"
             >
-              <div className="h-48 bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center">
-                <span className="text-6xl opacity-50 group-hover:opacity-70 transition-opacity">
-                  {project.title.charAt(0)}
-                </span>
-              </div>
-              
-              <div className="p-6">
-                <h3 className="text-xl font-bold mb-2">{project.title}</h3>
-                <p className="text-foreground-secondary text-sm mb-4">{project.description}</p>
-                
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.tech.map((tech) => (
-                    <span key={tech} className="px-2 py-1 text-xs rounded-full bg-primary/10 text-primary">
-                      {tech}
-                    </span>
-                  ))}
+              <button
+                type="button"
+                onClick={() => setSelectedProject(project)}
+                aria-haspopup="dialog"
+                aria-label={project.title}
+                className="text-left w-full cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+              >
+                <div className="h-48 bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center">
+                  <span className="text-6xl opacity-50 group-hover:opacity-70 transition-opacity">
+                    {project.title.charAt(0)}
+                  </span>
                 </div>
-                
-                <div className="flex gap-4">
-                  {project.demo && (
-                    <a
-                      href={project.demo}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-2 text-sm text-primary hover:underline"
-                      onClick={(e) => e.stopPropagation()}
-                    >
-                      <ExternalLink size={16} />
-                      {t('projects.viewDemo')}
-                    </a>
-                  )}
-                  {project.github && (
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-2 text-sm text-foreground-secondary hover:text-primary"
-                      onClick={(e) => e.stopPropagation()}
-                    >
-                      <GithubIcon size={16} />
-                      {t('projects.viewCode')}
-                    </a>
-                  )}
+
+                <div className="p-6 pb-4">
+                  <h3 className="text-xl font-bold mb-2">{project.title}</h3>
+                  <p className="text-foreground-secondary text-sm mb-4">{project.description}</p>
+
+                  <div className="flex flex-wrap gap-2">
+                    {project.tech.map((tech) => (
+                      <span key={tech} className="px-2 py-1 text-xs rounded-full bg-primary/10 text-primary">
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
                 </div>
+              </button>
+
+              <div className="px-6 pb-6 flex gap-4 mt-auto">
+                {project.demo && (
+                  <a
+                    href={project.demo}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 text-sm text-primary hover:underline"
+                  >
+                    <ExternalLink size={16} />
+                    {t('projects.viewDemo')}
+                  </a>
+                )}
+                {project.github && (
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 text-sm text-foreground-secondary hover:text-primary"
+                  >
+                    <GithubIcon size={16} />
+                    {t('projects.viewCode')}
+                  </a>
+                )}
               </div>
             </motion.div>
           ))}
@@ -112,6 +117,9 @@ export default function Projects() {
             onClick={() => setSelectedProject(null)}
           >
             <motion.div
+              role="dialog"
+              aria-modal="true"
+              aria-labelledby="project-modal-title"
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
@@ -119,10 +127,12 @@ export default function Projects() {
               onClick={(e) => e.stopPropagation()}
             >
               <div className="flex justify-between items-start mb-6">
-                <h3 className="text-2xl font-bold">{selectedProject.title}</h3>
+                <h3 id="project-modal-title" className="text-2xl font-bold">{selectedProject.title}</h3>
                 <button
+                  type="button"
                   onClick={() => setSelectedProject(null)}
-                  className="p-2 rounded-full hover:bg-muted transition-colors"
+                  aria-label={t('projects.close')}
+                  className="p-2 rounded-full hover:bg-muted transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
                 >
                   <X size={24} />
                 </button>
