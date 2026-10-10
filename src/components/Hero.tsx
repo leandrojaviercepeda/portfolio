@@ -95,7 +95,7 @@ export default function Hero() {
                 href="https://github.com/leandrojaviercepeda"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="social-btn p-3 rounded-full bg-muted hover:bg-primary/20 text-foreground-secondary hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background transition-all duration-200"
+                className="social-btn p-3 rounded-full bg-muted hover:bg-primary/20 text-foreground-secondary hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background transition-all duration-200"
                 aria-label="GitHub"
               >
                 <GithubIcon size={24} />
@@ -105,7 +105,7 @@ export default function Hero() {
                 href="https://www.linkedin.com/in/leandro-cepeda-640371165/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="social-btn p-3 rounded-full bg-muted hover:bg-primary/20 text-foreground-secondary hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background transition-all duration-200"
+                className="social-btn p-3 rounded-full bg-muted hover:bg-primary/20 text-foreground-secondary hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background transition-all duration-200"
                 aria-label="LinkedIn"
               >
                 <LinkedInIcon size={24} />
@@ -113,7 +113,7 @@ export default function Hero() {
               
               <a
                 href="mailto:leandrojaviercepeda@gmail.com"
-                className="social-btn p-3 rounded-full bg-muted hover:bg-primary/20 text-foreground-secondary hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background transition-all duration-200"
+                className="social-btn p-3 rounded-full bg-muted hover:bg-primary/20 text-foreground-secondary hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background transition-all duration-200"
                 aria-label="Email"
               >
                 <Mail size={24} />
@@ -149,10 +149,11 @@ export default function Hero() {
       <motion.button
         type="button"
         onClick={() => document.querySelector('#about')?.scrollIntoView({ behavior: 'smooth' })}
+        aria-label={t('hero.scrollDown')}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
       >
         <motion.div
           animate={{ y: [0, 10, 0] }}
