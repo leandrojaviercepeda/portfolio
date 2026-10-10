@@ -12,7 +12,8 @@
     "subtitle": "Systems Analyst / Full Stack Developer",
     "description": "Extensive experience in defining digital transformation strategies and developing information systems.",
     "cta": "Contact Me",
-    "cv": "Download CV"
+    "cv": "Download CV",
+    "scrollDown": "Scroll down"
   },
   "about": {
     "title": "About Me",
@@ -67,48 +68,64 @@
     "current": "Current",
     "experiences": [
       {
+        "company": "Belo",
+        "role": "Software Developer Full Stack",
+        "period": "June 2026 - Present",
+        "location": "Buenos Aires, CABA",
+        "achievements": [
+          "Belo transactional engine (Crypto/Fiat)",
+          "Multitenant authentication API",
+          "B2B transactional services API"
+        ],
+        "tech": ["PostgreSQL", "MongoDB", "Docker", "Node.js", "NestJS", "Vite", "React", "GitHub", "Linear", "Claude Code", "SDD", "Worktree"]
+      },
+      {
         "company": "ITR Banco Comafi",
         "role": "Software Developer Full Stack",
-        "period": "August 2023",
+        "period": "August 2023 - June 2026",
         "location": "Buenos Aires, CABA",
         "achievements": [
           "Api Banking Transaction Engine: banking transaction engine (SIDEBA / COELSA / PRISMA)",
           "Api Banking BFF Tarjeta Prepaga: prepaid card sales system (Prisma)"
         ],
-        "tech": ["AWS", "Node.js", "NestJS", "React", "PostgreSQL", "Docker"]
+        "tech": ["AWS", "MSAL", "PostgreSQL", "Docker", "Node.js", "NestJS", "Vite", "React", "Redux", "GitHub", "Jira"]
       },
       {
         "company": "Proguide",
         "role": "Full Stack Developer",
-        "period": "June 2021",
+        "period": "June 2021 - August 2023",
         "location": "Entre Ríos, Concepción del Uruguay",
         "achievements": [
           "BPM: Business Process Management system",
           "BOLT: trade marketing, operations and logistics system",
-          "Policía web: police process management system"
+          "Policía web: police process management system",
+          "Policía Review: police case management system",
+          "Policía Research: police summary investigation system",
+          "Soldados: recruitment management system for political parties"
         ],
-        "tech": ["Node.js", "NestJS", "React", "PostgreSQL", "MongoDB", "Docker"]
+        "tech": ["MSAL", "PostgreSQL", "MySQL", "MongoDB", "Redis", "Docker", "Camunda", "Node.js", "NestJS", "Vite", "React", "Redux", "Jenkins", "GitHub", "Jira"]
       },
       {
         "company": "Toptive",
         "role": "Full Stack Developer",
-        "period": "December 2020",
+        "period": "December 2020 - May 2021",
         "location": "Córdoba, Río Cuarto",
         "achievements": [
           "Global Geeks: tech solutions e-commerce",
-          "Krown FT: professional athletes social network"
+          "Krown FT: professional athletes social network",
+          "Atom Works: 3DS definitive self-diagnosis system"
         ],
-        "tech": ["Node.js", "Next.js", "React", "MySQL", "Docker"]
+        "tech": ["MySQL", "Docker", "Symfony", "Node.js", "Next.js", "React", "Redux", "GitHub", "Jira"]
       },
       {
-        "company": "Countergank (Personal)",
+        "company": "Countergank",
         "role": "Founder & Developer",
-        "period": "May 2025",
+        "period": "May 2025 - Present",
         "location": "Concepción del Uruguay, Entre Ríos",
         "achievements": [
-          "Timegank: project for content creators"
+          "Countergank Extensible Timer: project for content creators across different platforms"
         ],
-        "tech": ["Node.js", "NestJS", "React", "MongoDB", "Docker"]
+        "tech": ["PostgreSQL", "MongoDB", "Docker", "Node.js", "NestJS", "Vite", "React", "Redux", "TanStack", "Zustand", "GitHub", "Linear"]
       }
     ]
   },
@@ -129,7 +146,7 @@
     "period": {
       "lic": "March 2020 - December 2021",
       "analyst": "March 2017 - December 2019",
-      "diploma": "2020",
+      "diploma": "November 2021 - June 2022",
       "devops": "May 2023 - June 2023"
     },
     "location": "Concepción del Uruguay, Entre Ríos"
@@ -156,9 +173,10 @@
     "challenges": "Challenges",
     "solutions": "Solutions",
     "privateProject": "Private project",
+    "close": "Close",
     "projectsList": [
       {
-        "title": "Timegank",
+        "title": "Countergank Extensible Timer",
         "description": "Extensible tool for content creators across different streaming platforms",
         "tech": ["Node.js", "NestJS", "React", "MongoDB", "WebSockets"],
         "github": "",
