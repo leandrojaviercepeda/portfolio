@@ -73,25 +73,29 @@ export default function Footer() {
             transition={{ delay: 0.2 }}
             className="flex justify-end gap-4"
           >
-            <motion.button
-              type="button"
-              onClick={() => window.open('https://github.com/leandrojaviercepeda', '_blank')}
+            <motion.a
+              href="https://github.com/leandrojaviercepeda"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub"
               whileHover={{ scale: 1.1, y: -2 }}
               whileTap={{ scale: 0.9 }}
               className="p-2 rounded-full bg-muted hover:bg-primary/20 text-foreground-secondary hover:text-primary transition-colors"
             >
               <GithubIcon size={20} />
-            </motion.button>
+            </motion.a>
             
-            <motion.button
-              type="button"
-              onClick={() => window.open('https://www.linkedin.com/in/leandro-cepeda-640371165/', '_blank')}
+            <motion.a
+              href="https://www.linkedin.com/in/leandro-cepeda-640371165/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
               whileHover={{ scale: 1.1, y: -2 }}
               whileTap={{ scale: 0.9 }}
               className="p-2 rounded-full bg-muted hover:bg-primary/20 text-foreground-secondary hover:text-primary transition-colors"
             >
               <LinkedInIcon size={20} />
-            </motion.button>
+            </motion.a>
           </motion.div>
         </div>
 

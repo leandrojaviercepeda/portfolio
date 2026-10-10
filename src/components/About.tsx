@@ -57,7 +57,7 @@ export default function About() {
               <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                 {(t.raw('about').specializations as string[]).map((spec, index) => (
                   <motion.li
-                    key={index}
+                    key={spec}
                     initial={{ opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}

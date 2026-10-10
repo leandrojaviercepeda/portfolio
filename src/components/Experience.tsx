@@ -36,7 +36,7 @@ export default function Experience() {
           <div className="space-y-12">
             {experiences.map((exp, index) => (
               <motion.div
-                key={index}
+                key={exp.company}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -59,8 +59,8 @@ export default function Experience() {
                     <p className="text-foreground-secondary mb-4">{exp.role}</p>
                     
                     <ul className="space-y-2 mb-4">
-                      {exp.achievements.map((achievement, i) => (
-                        <li key={i} className="text-sm text-foreground-secondary flex items-start gap-2">
+                      {exp.achievements.map((achievement) => (
+                        <li key={achievement} className="text-sm text-foreground-secondary flex items-start gap-2">
                           <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
                           {achievement}
                         </li>
